@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-function App() {
+const App = () => {
+  const [coins, setCoins] = useState();
+  useEffect(() => {
+    axios
+      .get(
+        "htps://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      )
+      .then((res) => {
+        console.log(res.data);
+        setCoins(res.data);
+      })
+      .catch((error) => {
+        console.log("error is" + error);
+      });
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Hello</h1>
     </div>
   );
-}
+};
 
 export default App;
