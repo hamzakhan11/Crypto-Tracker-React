@@ -17,8 +17,16 @@ const App = () => {
       });
   }, []);
   return (
-    <div>
-      <h1>Hello</h1>
+    <div className='coin-app'>
+      <div className='coin-search'>
+        <h1 className='coin-text'>Search a currency</h1>
+        <form>
+          <input
+            type='text'
+            className='coin-input'
+            placeholder='Search'></input>
+        </form>
+      </div>
     </div>
   );
 };
