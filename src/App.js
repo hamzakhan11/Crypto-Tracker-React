@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import "./App.css";
 const App = () => {
   const [coins, setCoins] = useState();
   const [search, setSearch] = useState("");
